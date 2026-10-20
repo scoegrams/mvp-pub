@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit menu | Michael's Village Pub</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/styles.css?v=9">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">
+      <img src="/img/logo-small.png" alt="" width="64" height="59">
+      <span>Edit menu</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="/#menu">View menu</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="band">
+      <div class="wrap">
+        <h2>Menu</h2>
+        <p class="fine">Every dish uses the same card. Change the words here and save. On Railway, set <code>MONGODB_URI</code> so edits stay after a redeploy, and <code>MENU_PASSWORD</code> so the public can’t change prices.</p>
+        <label class="edit-key">Password
+          <input id="key" type="password" autocomplete="current-password">
+        </label>
+        <p id="status" class="fine" role="status"></p>
+        <div id="editor"></div>
+        <div class="edit-actions">
+          <button class="btn" id="add-section" type="button">Add section</button>
+          <button class="btn" id="save" type="button">Save menu</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const editor = document.getElementById("editor");
+    const status = document.getElementById("status");
+    const keyInput = document.getElementById("key");
+    let menu = { footer: "", categories: [] };
+
+    keyInput.value = sessionStorage.getItem("mvp-menu-key") || "";
+
+    function field(label, value, oninput) {
+      const wrap = document.createElement("label");
+      wrap.className = "edit-field";
+      wrap.append(document.createTextNode(label));
+      const input = document.createElement(label === "Detail" || label === "Note" || label === "Footer" ? "textarea" : "input");
+      input.value = value || "";
+      input.addEventListener("input", () => oninput(input.value));
+      wrap.appendChild(input);
+      return wrap;
+    }
+
+    function render() {
+      editor.replaceChildren();
+      menu.categories.forEach((category, categoryIndex) => {
+        const block = document.createElement("section");
+        block.className = "edit-block";
+        const title = document.createElement("h3");
+        title.textContent = category.name || "Section";
+        block.appendChild(title);
+        block.appendChild(field("Section", category.name, (value) => {
+          category.name = value;
+          title.textContent = value || "Section";
+        }));
+        block.appendChild(field("Note", category.note, (value) => { category.note = value; }));
+        category.items.forEach((item, itemIndex) => {
+          const card = document.createElement("div");
+          card.className = "edit-card";
+          card.append(
+            field("Name", item.name, (value) => { item.name = value; }),
+            field("Price", item.price, (value) => { item.price = value; }),
+            field("Detail", item.detail, (value) => { item.detail = value; })
+          );
+          const remove = document.createElement("button");
+          remove.type = "button";
+          remove.className = "text-btn";
+          remove.textContent = "Remove";
+          remove.addEventListener("click", () => {
+            category.items.splice(itemIndex, 1);
+            render();
+          });
+          card.appendChild(remove);
+          block.appendChild(card);
+        });
+        const add = document.createElement("button");
+        add.type = "button";
+        add.className = "text-btn";
+        add.textContent = "Add item";
+        add.addEventListener("click", () => {
+          category.items.push({ id: "", name: "New item", price: "", detail: "" });
+          render();
+        });
+        block.appendChild(add);
+        editor.appendChild(block);
+      });
+      editor.appendChild(field("Footer", menu.footer, (value) => { menu.footer = value; }));
+    }
+
+    document.getElementById("add-section").addEventListener("click", () => {
+      menu.categories.push({ id: "", name: "New section", note: "", items: [] });
+      render();
+    });
+
+    document.getElementById("save").addEventListener("click", async () => {
+      sessionStorage.setItem("mvp-menu-key", keyInput.value);
+      status.textContent = "Saving…";
+      const response = await fetch("/api/menu", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-menu-key": keyInput.value,
+        },
+        body: JSON.stringify(menu),
+      });
+      if (response.status === 401) {
+        status.textContent = "Wrong password.";
+        return;
+      }
+      if (!response.ok) {
+        status.textContent = "Save failed.";
+        return;
+      }
+      const saved = await response.json();
+      menu = saved;
+      status.textContent = saved.storage === "mongodb"
+        ? "Saved to MongoDB."
+        : "Saved on this server. Set MONGODB_URI on Railway so a redeploy doesn’t wipe it.";
+      render();
+    });
+
+    fetch("/api/menu")
+      .then((response) => response.json())
+      .then((data) => {
+        menu = data;
+        render();
+      })
+      .catch(() => {
+        status.textContent = "The menu didn’t load.";
+      });
+  </script>
+</body>
+</html>

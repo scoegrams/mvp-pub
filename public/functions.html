@@ -1,0 +1,124 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Functions &amp; Catering | Michael's Village Pub</title>
+  <meta name="description" content="Book a party, function, or catering from Michael's Village Pub in Plymouth, MA.">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=8">
+</head>
+<body>
+
+  <header class="top">
+    <a class="brand" href="/" aria-label="Michael's Village Pub home">
+      <img src="/img/logo-small.png" alt="" width="64" height="59">
+      <span>Michael's Village Pub</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="/takeout">Takeout</a>
+      <a href="/#menu">Menu</a>
+      <a href="/functions" aria-current="page">Functions</a>
+      <a href="/#visit">Visit</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero slim">
+      <h1>Functions &amp; Catering</h1>
+      <p class="tagline">Parties, platters, the whole crew</p>
+      <p class="lede">Birthdays, office lunches, game-day groups, and food to go. Tell us the date and the head count. We’ll get back to you.</p>
+    </section>
+
+    <section class="band">
+      <div class="wrap form-wrap">
+        <div id="thanks" class="thanks" hidden>
+          <h2>Got it.</h2>
+          <p>We’ll be in touch. If it’s a last-minute thing, swing by 2294 State Rd or try us again with a phone number.</p>
+          <a class="btn" href="/">Back home</a>
+        </div>
+
+        <form id="function-form" class="fn-form" action="/functions" method="post">
+          <h2>Ask about a date</h2>
+
+          <p class="hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </p>
+
+          <div class="fields">
+            <label>
+              Your name
+              <input type="text" name="name" required autocomplete="name" maxlength="120">
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required autocomplete="email" maxlength="160">
+            </label>
+            <label>
+              Phone
+              <input type="tel" name="phone" autocomplete="tel" maxlength="40">
+            </label>
+            <label>
+              What kind of thing
+              <select name="event_type" required>
+                <option value="" selected disabled>Pick one</option>
+                <option>Birthday / party</option>
+                <option>Game day / group</option>
+                <option>Office / work</option>
+                <option>Catering to go</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              Date
+              <input type="date" name="date">
+            </label>
+            <label>
+              How many people
+              <input type="number" name="guests" min="1" max="400" inputmode="numeric">
+            </label>
+            <label class="full">
+              At the pub or catering out
+              <select name="where">
+                <option value="" selected disabled>Pick one</option>
+                <option>At the pub</option>
+                <option>Catering / drop-off</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label class="full">
+              Details
+              <textarea name="details" rows="5" maxlength="2000" placeholder="Menu ideas, time, anything we should know."></textarea>
+            </label>
+          </div>
+
+          <button class="btn" type="submit">Send it</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <img src="/img/logo-small.png" alt="" width="64" height="59">
+    <p>&copy; <span id="yr">2026</span> Michael's Village Pub &middot; 2294 State Rd, Plymouth, MA 02360</p>
+    <p class="tag">Great Food + Good Times</p>
+  </footer>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    if (new URLSearchParams(location.search).get("sent") === "1") {
+      document.getElementById("thanks").hidden = false;
+      document.getElementById("function-form").hidden = true;
+    }
+  </script>
+</body>
+</html>
+
+-->

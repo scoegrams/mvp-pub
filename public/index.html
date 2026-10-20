@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Michael's Village Pub | Plymouth, MA</title>
+  <meta name="description" content="Michael's Village Pub (MVP) at 2294 State Rd in Plymouth, MA. Great food + good times.">
+  <meta property="og:title" content="Michael's Village Pub | Plymouth, MA">
+  <meta property="og:description" content="Great food + good times. 2294 State Rd, Plymouth, MA.">
+  <meta property="og:image" content="/img/logo.png">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=13">
+</head>
+<body>
+
+  <header class="top">
+    <a class="brand" href="#top" aria-label="Michael's Village Pub home">
+      <img src="/img/logo-small.png" alt="" width="64" height="59">
+      <span>Michael's Village Pub</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="/takeout">Takeout</a>
+      <a href="#menu">Menu</a>
+      <!-- <a href="/functions">Functions</a> -->
+      <a href="#visit">Visit</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <img class="crest" src="/img/logo.png" alt="MVP, Michael's Village Pub. Great food + good times." width="450" height="416">
+      <h1>Michael's Village Pub</h1>
+      <p class="tagline">Great Food + Good Times</p>
+      <p class="addr">2294 State Rd, Plymouth, MA 02360</p>
+      <div class="actions">
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=2294+State+Rd+Plymouth+MA+02360" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn ghost" href="/takeout">Order Takeout</a>
+      </div>
+    </section>
+
+    <section class="band" id="menu">
+      <div class="wrap">
+        <h2>Menu</h2>
+        <div class="menu-layout">
+          <nav id="menu-jump" class="menu-side" aria-label="Menu sections"></nav>
+          <div id="menu-board">Loading the menu…</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="wrap">
+        <h2>Gallery</h2>
+        <div class="shots">
+          <figure class="shot"><img src="/img/bar-1.jpg" alt="A bar room with high tables and stools" width="400" height="400"></figure>
+          <figure class="shot"><img src="/img/bar-2.jpg" alt="People sitting at a dimly lit bar" width="400" height="400"></figure>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+          <div class="shot empty" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap grid">
+        <div>
+          <h2>Hours &amp; Location</h2>
+          <p class="label">Find us</p>
+          <address>
+            Michael's Village Pub<br>
+            2294 State Rd<br>
+            Plymouth, MA 02360
+          </address>
+          <p class="label">Takeout hours</p>
+          <p class="soon">Sun–Wed 12–9<br>Thu–Sat 12–10</p>
+          <p class="label">Phone</p>
+          <p class="soon"><a href="tel:+17744139263">(774) 413-9263</a></p>
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=2294+State+Rd+Plymouth+MA+02360" target="_blank" rel="noopener">Get Directions</a>
+          <!-- <p class="more"><a href="/functions">Functions &amp; catering</a></p> -->
+        </div>
+        <div class="map">
+          <iframe
+            title="Map to Michael's Village Pub, 2294 State Rd, Plymouth MA"
+            src="https://www.google.com/maps?q=2294+State+Rd+Plymouth+MA+02360&amp;output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <img src="/img/logo-small.png" alt="" width="64" height="59">
+    <p>&copy; <span id="yr">2026</span> Michael's Village Pub &middot; 2294 State Rd, Plymouth, MA 02360</p>
+    <p class="tag">Great Food + Good Times</p>
+  </footer>
+
+  <script src="/menu.js"></script>
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>
