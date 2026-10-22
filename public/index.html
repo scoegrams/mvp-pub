@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=26">
+  <link rel="stylesheet" href="/styles.css?v=27">
 </head>
 <body>
 
@@ -21,12 +21,15 @@
       <img src="/img/mvp-mark-light.png" alt="" width="675" height="369">
       <span>Michael's Village Pub</span>
     </a>
-    <nav aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+    </button>
+    <nav id="site-nav" aria-label="Primary">
       <a href="/takeout">Takeout</a>
-      <a href="#menu">Menu</a>
+      <a href="#menu">Food Menu</a>
       <a href="#gift-cards">Gift Cards</a>
       <!-- <a href="/functions">Functions</a> -->
-      <a href="#visit">Visit</a>
+      <a href="#visit">Find Us</a>
     </nav>
   </header>
 
@@ -162,6 +165,7 @@
 
   <script src="/menu.js"></script>
   <script src="/gallery.js"></script>
+  <script src="/nav.js"></script>
   <script src="/metal.js"></script>
   <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>

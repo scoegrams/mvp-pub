@@ -37,6 +37,7 @@ ul, ol { list-style: none; padding: 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   gap: 1rem;
   padding: 0.45rem 1.25rem 0.7rem;
   color: var(--cream);
@@ -82,6 +83,7 @@ ul, ol { list-style: none; padding: 0; }
 .brand {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
   gap: 0.85rem;
   text-decoration: none;
   font-family: var(--header);
@@ -96,7 +98,65 @@ ul, ol { list-style: none; padding: 0; }
 .brand img {
   width: auto;
   height: 54px;
+  max-width: none;
   flex-shrink: 0;
+  object-fit: contain;
+  aspect-ratio: 675 / 369;
+}
+
+.nav-toggle {
+  display: none;
+  appearance: none;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--cream);
+  cursor: pointer;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+.nav-toggle-bars,
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 0 auto;
+  border-radius: 1px;
+  background: var(--cream);
+}
+
+.nav-toggle-bars {
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.nav-toggle-bars::before { transform: translateY(-7px); }
+.nav-toggle-bars::after { transform: translateY(7px); }
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::before {
+  transform: rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::after {
+  transform: rotate(-45deg);
 }
 
 .top nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1.25rem; }
@@ -855,35 +915,67 @@ footer .tag {
 }
 
 /* Small screens */
+@media (max-width: 800px) {
+  .nav-toggle { display: grid; place-items: center; }
+  .brand span { display: none; }
+  .brand img { height: 48px; }
+  .top nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0.35rem 1.25rem 0.85rem;
+    background: #2c1a12;
+    box-shadow: 0 16px 28px rgba(24, 12, 8, 0.45);
+  }
+  .top nav.is-open { display: flex; }
+  .top nav a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(232, 224, 184, 0.16);
+  }
+  .top nav a:last-child { border-bottom: 0; }
+  .top nav a:hover,
+  .top nav a:focus-visible,
+  .top nav a[aria-current="page"] {
+    border-bottom-color: rgba(232, 224, 184, 0.16);
+    color: var(--amber);
+  }
+  body.nav-open { overflow: hidden; }
+}
+
 @media (max-width: 720px) {
   .grid { grid-template-columns: 1fr; }
-  .brand span { display: none; }
-  .brand img { height: 50px; }
   .menu-head { flex-wrap: wrap; align-items: center; }
   .gift-split { grid-template-columns: 1fr; }
-  .top nav { gap: 0.9rem; }
-  .top nav a { font-size: 0.75rem; }
   .dishes { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
   .menu-layout { grid-template-columns: 1fr; gap: 0.75rem; }
   .menu-side {
-    top: 65px;
+    top: 72px;
     z-index: 5;
     flex-direction: row;
+    flex-wrap: wrap;
     max-height: none;
-    gap: 0;
+    gap: 0.15rem 0.15rem;
     margin: 0 -1.25rem;
-    padding: 0 1.25rem;
+    padding: 0.35rem 1.25rem;
     background: var(--cream);
     border-bottom: 2px solid var(--gold);
-    -webkit-mask-image: linear-gradient(to right, #000 0.75rem, #000 calc(100% - 2rem), transparent);
-    mask-image: linear-gradient(to right, #000 0.75rem, #000 calc(100% - 2rem), transparent);
   }
   .cat h3 { scroll-margin-top: 48px; }
   .menu-side a {
     flex: 0 0 auto;
     min-height: 44px;
-    padding: 0 0.85rem;
-    white-space: nowrap;
+    padding: 0 0.7rem;
   }
   .menu-row { grid-template-columns: 1fr; gap: 0.1rem; padding: 0.85rem 0; }
   .menu-row .price { text-align: left; color: #7a4e12; }
@@ -898,6 +990,9 @@ footer .tag {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
   .view[open] .view-pic { animation: none; }
+  .nav-toggle-bars,
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after { transition: none; }
 }
 
 /* Item photos */
