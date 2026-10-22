@@ -67,12 +67,37 @@ function slug(value) {
   return text || "item";
 }
 
+function fileImages() {
+  const images = new Map();
+  for (const category of readFile().categories || []) {
+    for (const item of category.items || []) {
+      const image = cleanImage(item.image);
+      if (item.id && image) images.set(item.id, image);
+    }
+  }
+  return images;
+}
+
+function fillMissingImages(doc) {
+  const images = fileImages();
+  return {
+    footer: doc.footer || "",
+    categories: (doc.categories || []).map((category) => ({
+      ...category,
+      items: (category.items || []).map((item) => {
+        if (cleanImage(item.image) || !images.has(item.id)) return item;
+        return { ...item, image: images.get(item.id) };
+      }),
+    })),
+  };
+}
+
 async function loadMenu() {
   const col = await collection();
   if (!col) return readFile();
   const saved = await col.findOne({ _id: "live" });
   if (saved && Array.isArray(saved.categories)) {
-    return { footer: saved.footer || "", categories: saved.categories };
+    return fillMissingImages({ footer: saved.footer || "", categories: saved.categories });
   }
   const seed = readFile();
   await col.updateOne(
