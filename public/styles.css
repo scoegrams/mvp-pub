@@ -615,12 +615,26 @@ h2 {
   text-align: center;
 }
 
+.gift-split {
+  display: grid;
+  gap: 2rem 2.5rem;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
 .gift p {
-  max-width: 36rem;
+  max-width: 28rem;
   margin: 0 auto;
 }
 
-.gift .btn { margin-top: 1.25rem; }
+.gift .btn { margin-top: 1.15rem; }
+
+footer .foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1.15rem;
+}
 
 .visit { padding: 4rem 0; background: var(--brown-dark); border-top: 6px solid var(--gold); }
 
@@ -846,6 +860,7 @@ footer .tag {
   .brand span { display: none; }
   .brand img { height: 50px; }
   .menu-head { flex-wrap: wrap; align-items: center; }
+  .gift-split { grid-template-columns: 1fr; }
   .top nav { gap: 0.9rem; }
   .top nav a { font-size: 0.75rem; }
   .dishes { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
