@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Edit menu | Michael's Village Pub</title>
   <link rel="icon" href="/favicon.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=9">
+  <link rel="stylesheet" href="/styles.css?v=25">
 </head>
 <body>
   <header class="top">
     <a class="brand" href="/">
-      <img src="/img/logo-small.png" alt="" width="64" height="59">
+      <img src="/img/mvp-mark-light.png" alt="" width="675" height="369">
       <span>Edit menu</span>
     </a>
     <nav aria-label="Primary">
@@ -22,7 +22,7 @@
     <section class="band">
       <div class="wrap">
         <h2>Menu</h2>
-        <p class="fine">Every dish uses the same card. Change the words here and save. On Railway, set <code>MONGODB_URI</code> so edits stay after a redeploy, and <code>MENU_PASSWORD</code> so the public can’t change prices.</p>
+        <p class="fine">Change the words here and save. Add a photo only for dishes you want in the gallery — skip tater tots and frickles. JPG, PNG, or WebP, 5 MB max. On Railway, set <code>MONGODB_URI</code> so the menu and photos stay after a redeploy, and <code>MENU_PASSWORD</code> so the public can’t change prices.</p>
         <label class="edit-key">Password
           <input id="key" type="password" autocomplete="current-password">
         </label>
@@ -55,6 +55,104 @@
       return wrap;
     }
 
+    function paintPreview(box, item) {
+      box.replaceChildren();
+      if (item.image) {
+        box.classList.remove("empty");
+        const img = document.createElement("img");
+        img.src = item.image;
+        img.alt = item.name || "Dish photo";
+        box.appendChild(img);
+      } else {
+        box.classList.add("empty");
+        box.appendChild(document.createTextNode("No photo"));
+      }
+    }
+
+    function photoField(item) {
+      const wrap = document.createElement("div");
+      wrap.className = "edit-photo";
+      const label = document.createElement("p");
+      label.className = "edit-photo-label";
+      label.textContent = "Photo";
+      const row = document.createElement("div");
+      row.className = "edit-photo-row";
+      const preview = document.createElement("div");
+      preview.className = "edit-photo-preview";
+      paintPreview(preview, item);
+      const actions = document.createElement("div");
+      actions.className = "edit-photo-actions";
+      const hint = document.createElement("p");
+      hint.className = "fine";
+      hint.textContent = item.image
+        ? "This dish shows in the gallery."
+        : "Leave blank unless you want this dish in the gallery.";
+      const file = document.createElement("input");
+      file.type = "file";
+      file.accept = "image/jpeg,image/png,image/webp";
+      file.hidden = true;
+      const pick = document.createElement("button");
+      pick.type = "button";
+      pick.className = "text-btn";
+      pick.textContent = item.image ? "Replace photo" : "Upload photo";
+      pick.addEventListener("click", () => file.click());
+      file.addEventListener("change", async () => {
+        const chosen = file.files && file.files[0];
+        if (!chosen) return;
+        sessionStorage.setItem("mvp-menu-key", keyInput.value);
+        pick.disabled = true;
+        pick.textContent = "Uploading…";
+        hint.textContent = "Uploading…";
+        try {
+          const body = new FormData();
+          body.append("photo", chosen, chosen.name);
+          const response = await fetch("/api/photo", {
+            method: "POST",
+            headers: { "x-menu-key": keyInput.value },
+            body,
+          });
+          if (response.status === 401) {
+            status.textContent = "Wrong password.";
+            hint.textContent = "Wrong password.";
+            return;
+          }
+          const payload = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            hint.textContent = payload.error || "Upload failed.";
+            return;
+          }
+          item.image = payload.url;
+          paintPreview(preview, item);
+          hint.textContent = "Photo attached. Save the menu to keep it on this dish.";
+          pick.textContent = "Replace photo";
+          remove.hidden = false;
+          status.textContent = "Photo uploaded. Save the menu to keep it.";
+        } catch (err) {
+          hint.textContent = "Upload failed.";
+        } finally {
+          pick.disabled = false;
+          if (!item.image) pick.textContent = "Upload photo";
+          file.value = "";
+        }
+      });
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "text-btn";
+      remove.textContent = "Remove photo";
+      remove.hidden = !item.image;
+      remove.addEventListener("click", () => {
+        item.image = "";
+        paintPreview(preview, item);
+        hint.textContent = "Leave blank unless you want this dish in the gallery.";
+        pick.textContent = "Upload photo";
+        remove.hidden = true;
+      });
+      actions.append(hint, pick, file, remove);
+      row.append(preview, actions);
+      wrap.append(label, row);
+      return wrap;
+    }
+
     function render() {
       editor.replaceChildren();
       menu.categories.forEach((category, categoryIndex) => {
@@ -74,7 +172,8 @@
           card.append(
             field("Name", item.name, (value) => { item.name = value; }),
             field("Price", item.price, (value) => { item.price = value; }),
-            field("Detail", item.detail, (value) => { item.detail = value; })
+            field("Detail", item.detail, (value) => { item.detail = value; }),
+            photoField(item)
           );
           const remove = document.createElement("button");
           remove.type = "button";
@@ -92,7 +191,7 @@
         add.className = "text-btn";
         add.textContent = "Add item";
         add.addEventListener("click", () => {
-          category.items.push({ id: "", name: "New item", price: "", detail: "" });
+          category.items.push({ id: "", name: "New item", price: "", detail: "", image: "" });
           render();
         });
         block.appendChild(add);
@@ -143,5 +242,6 @@
         status.textContent = "The menu didn’t load.";
       });
   </script>
+  <script src="/metal.js"></script>
 </body>
 </html>

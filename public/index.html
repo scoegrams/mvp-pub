@@ -11,19 +11,20 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=13">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=25">
 </head>
 <body>
 
   <header class="top">
     <a class="brand" href="#top" aria-label="Michael's Village Pub home">
-      <img src="/img/logo-small.png" alt="" width="64" height="59">
+      <img src="/img/mvp-mark-light.png" alt="" width="675" height="369">
       <span>Michael's Village Pub</span>
     </a>
     <nav aria-label="Primary">
       <a href="/takeout">Takeout</a>
       <a href="#menu">Menu</a>
+      <a href="#gift-cards">Gift Cards</a>
       <!-- <a href="/functions">Functions</a> -->
       <a href="#visit">Visit</a>
     </nav>
@@ -44,7 +45,10 @@
 
     <section class="band" id="menu">
       <div class="wrap">
-        <h2>Menu</h2>
+        <div class="menu-head">
+          <h2>Menu</h2>
+          <p class="menu-more"><a class="btn ghost-dark" href="#gallery">See the Gallery</a></p>
+        </div>
         <div class="menu-layout">
           <nav id="menu-jump" class="menu-side" aria-label="Menu sections"></nav>
           <div id="menu-board">Loading the menu…</div>
@@ -55,20 +59,52 @@
     <section class="gallery" id="gallery">
       <div class="wrap">
         <h2>Gallery</h2>
-        <div class="shots">
-          <figure class="shot"><img src="/img/bar-1.jpg" alt="A bar room with high tables and stools" width="400" height="400"></figure>
-          <figure class="shot"><img src="/img/bar-2.jpg" alt="People sitting at a dimly lit bar" width="400" height="400"></figure>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
-          <div class="shot empty" aria-hidden="true"></div>
+        <div class="shots" id="shots">
+          <figure class="shot">
+            <img src="/img/bar.jpg" alt="The bar at Michael's Village Pub, with tap handles and a Boston Garden sign" width="1600" height="1067" loading="lazy">
+            <figcaption>The bar</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/img/taproom.jpg" alt="The taproom, with tables, TVs, and people at the bar" width="1600" height="1067" loading="lazy">
+            <figcaption>The room</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/img/entry.jpg" alt="Looking through the stone arch into the bar" width="1067" height="1600" loading="lazy">
+            <figcaption>Walk in</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/img/dining.jpg" alt="The dining room, wood walls and Patriots championship prints" width="1472" height="1600" loading="lazy">
+            <figcaption>Dining room</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/img/pint.jpg" alt="A pint poured at the taps" width="942" height="1600" loading="lazy">
+            <figcaption>On tap</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/img/building.jpg" alt="The back of the pub and the parking lot" width="1600" height="1067" loading="lazy">
+            <figcaption>Out back</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/img/hagler-poster.jpg" alt="Framed Marvelous Hagler poster on the wood wall" width="1512" height="1600" loading="lazy">
+            <figcaption>Marvelous</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/img/salads-four.jpg" alt="Four salads on a table" width="1600" height="769" loading="lazy">
+            <figcaption>Salads</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/img/house-salad-plate.jpg" alt="A house salad of mixed greens, tomato, and red onion" width="1600" height="1070" loading="lazy">
+            <figcaption>House salad</figcaption>
+          </figure>
         </div>
+      </div>
+    </section>
+
+    <section class="band gift" id="gift-cards">
+      <div class="wrap">
+        <h2>Gift Cards</h2>
+        <p>Digital cards, $10–$500, sent by email. Physical cards, $10–$500, sent by mail.</p>
+        <a class="btn" href="https://michaelsvillagepub.webgiftcardsales.com/" target="_blank" rel="noopener">Purchase Gift Cards</a>
       </div>
     </section>
 
@@ -102,13 +138,23 @@
 
   </main>
 
+  <dialog class="view" id="view" aria-label="Photo">
+    <button type="button" class="btn ghost view-close">Close</button>
+    <figure class="view-pic">
+      <figcaption></figcaption>
+    </figure>
+  </dialog>
+
   <footer>
     <img src="/img/logo-small.png" alt="" width="64" height="59">
     <p>&copy; <span id="yr">2026</span> Michael's Village Pub &middot; 2294 State Rd, Plymouth, MA 02360</p>
+    <p class="foot-links"><a href="https://michaelsvillagepub.webgiftcardsales.com/" target="_blank" rel="noopener">Gift Cards</a></p>
     <p class="tag">Great Food + Good Times</p>
   </footer>
 
   <script src="/menu.js"></script>
+  <script src="/gallery.js"></script>
+  <script src="/metal.js"></script>
   <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -36,14 +36,26 @@ function clean(doc) {
       id: slug(category.id || category.name || "section-" + index),
       name: String(category.name || "Section").slice(0, 80),
       note: String(category.note || "").slice(0, 400),
-      items: (Array.isArray(category.items) ? category.items : []).slice(0, 80).map((item, itemIndex) => ({
-        id: slug(item.id || item.name || "item-" + itemIndex),
-        name: String(item.name || "Item").slice(0, 80),
-        price: String(item.price || "").slice(0, 120),
-        detail: String(item.detail || "").slice(0, 400),
-      })),
+      items: (Array.isArray(category.items) ? category.items : []).slice(0, 80).map((item, itemIndex) => {
+        const next = {
+          id: slug(item.id || item.name || "item-" + itemIndex),
+          name: String(item.name || "Item").slice(0, 80),
+          price: String(item.price || "").slice(0, 120),
+          detail: String(item.detail || "").slice(0, 400),
+        };
+        const image = cleanImage(item.image);
+        if (image) next.image = image;
+        return next;
+      }),
     })),
   };
+}
+
+function cleanImage(value) {
+  const image = String(value || "").trim();
+  if (!/^(\/img\/|https:\/\/)[^\s"'<>]+$/.test(image)) return "";
+  if (image.includes("..")) return "";
+  return image.slice(0, 300);
 }
 
 function slug(value) {

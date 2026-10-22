@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const menuStore = require("./menu-store");
+const photoStore = require("./photo-store");
 
 const PORT = process.env.PORT || 3000;
 const ROOT = path.join(__dirname, "public");
@@ -33,6 +34,24 @@ function readBody(req, limit = 20000) {
       }
     });
     req.on("end", () => resolve(raw));
+    req.on("error", reject);
+  });
+}
+
+function readBuffer(req, limit) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    let size = 0;
+    req.on("data", (chunk) => {
+      size += chunk.length;
+      if (size > limit) {
+        req.destroy();
+        reject(new Error("too big"));
+        return;
+      }
+      chunks.push(chunk);
+    });
+    req.on("end", () => resolve(Buffer.concat(chunks)));
     req.on("error", reject);
   });
 }
@@ -114,6 +133,39 @@ http
       } catch (err) {
         console.error(err);
         return sendJson(res, 400, { error: "Menu could not be saved." });
+      }
+    }
+
+    if (req.method === "POST" && urlPath === "/api/photo") {
+      if (!menuKeyOk(req)) return sendJson(res, 401, { error: "Wrong password." });
+      try {
+        const raw = await readBuffer(req, photoStore.MAX + 8192);
+        const file = photoStore.parseUpload(req.headers["content-type"], raw);
+        const saved = await photoStore.savePhoto(file);
+        return sendJson(res, 200, saved);
+      } catch (err) {
+        if (err.message === "too big") return sendJson(res, 400, { error: "Photo is too large (5 MB max)." });
+        if (err.message === "bad image") return sendJson(res, 400, { error: "Use a JPG, PNG, or WebP photo." });
+        console.error(err);
+        return sendJson(res, 400, { error: "Photo could not be uploaded." });
+      }
+    }
+
+    if (req.method === "GET" && urlPath.startsWith("/img/dishes/")) {
+      try {
+        const photo = await photoStore.getPhoto(path.basename(urlPath));
+        if (!photo) {
+          res.writeHead(404, { "Content-Type": "text/plain" });
+          return res.end("Not found");
+        }
+        res.writeHead(200, {
+          "Content-Type": photo.type,
+          "Cache-Control": "public, max-age=86400",
+        });
+        return res.end(photo.buf);
+      } catch (err) {
+        console.error(err);
+        return sendJson(res, 500, { error: "Photo could not be loaded." });
       }
     }
 

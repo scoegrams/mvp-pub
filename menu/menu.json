@@ -2,6 +2,46 @@
   "footer": "Tell us about food allergies before you order. Raw or undercooked meat, fish, poultry, shellfish, or eggs can raise the risk of foodborne illness.",
   "categories": [
     {
+      "id": "favorites",
+      "name": "Favorites",
+      "note": "A short list of what people order most. The full menu is in the tabs.",
+      "items": [
+        {
+          "id": "fav-buffalo",
+          "name": "Buffalo Chicken Sandwich",
+          "price": "$16.49",
+          "detail": "Fried chicken in buffalo sauce, blue cheese, lettuce, tomato, grilled potato bun."
+        },
+        {
+          "id": "fav-house-burger",
+          "name": "House Burger",
+          "price": "$18.99",
+          "detail": "Sharp cheddar, crispy bacon, fried pickles, special sauce."
+        },
+        {
+          "id": "fav-cobb",
+          "name": "MVP Cobb",
+          "price": "$18",
+          "detail": "Mixed greens, tomatoes, red onions, shredded cheese, bacon, blue cheese, hard-boiled egg, grilled chicken.",
+          "image": "/img/cobb-salad.jpg"
+        },
+        {
+          "id": "fav-wings",
+          "name": "Wings",
+          "price": "5 for $11 / 10 for $18",
+          "detail": "Buffalo, BBQ, sweet chili, garlic parmesan, or honey BBQ.",
+          "image": "/img/wings.jpg"
+        },
+        {
+          "id": "fav-chowder",
+          "name": "New England Clam Chowder",
+          "price": "Cup $10 / Bowl $12",
+          "detail": "",
+          "image": "/img/chowder.jpg"
+        }
+      ]
+    },
+    {
       "id": "soups",
       "name": "Soups",
       "note": "",
@@ -10,13 +50,15 @@
           "id": "clam-chowder",
           "name": "New England Clam Chowder",
           "price": "Cup $10 / Bowl $12",
-          "detail": ""
+          "detail": "",
+          "image": "/img/chowder.jpg"
         },
         {
           "id": "texas-chili",
           "name": "Texas Beef Chili",
           "price": "Cup $10 / Bowl $12",
-          "detail": ""
+          "detail": "",
+          "image": "/img/chili.jpg"
         }
       ]
     },
@@ -29,25 +71,29 @@
           "id": "caesar",
           "name": "Caesar",
           "price": "$12",
-          "detail": "Chopped romaine, shaved Parmesan Reggiano, garlic-herb croutons, creamy Caesar dressing."
+          "detail": "Chopped romaine, shaved Parmesan Reggiano, garlic-herb croutons, creamy Caesar dressing.",
+          "image": "/img/caesar-salad.jpg"
         },
         {
           "id": "house-salad",
           "name": "House Salad",
           "price": "$10",
-          "detail": "Mixed greens, tomatoes, red onions, olive slices."
+          "detail": "Mixed greens, tomatoes, red onions, olive slices.",
+          "image": "/img/house-salad.jpg"
         },
         {
           "id": "mvp-cobb",
           "name": "MVP Cobb",
           "price": "$18",
-          "detail": "Mixed greens, tomatoes, red onions, shredded cheese, bacon, blue cheese, hard-boiled egg, grilled chicken. Blackened shrimp $19."
+          "detail": "Mixed greens, tomatoes, red onions, shredded cheese, bacon, blue cheese, hard-boiled egg, grilled chicken. Blackened shrimp $19.",
+          "image": "/img/cobb-salad.jpg"
         },
         {
           "id": "honey-mustard-chicken-salad",
           "name": "Honey Mustard Chicken",
           "price": "$16",
-          "detail": "Fried chicken tenders, blended lettuce, diced tomatoes, shredded cheese, honey mustard dressing."
+          "detail": "Fried chicken tenders, blended lettuce, diced tomatoes, shredded cheese, honey mustard dressing.",
+          "image": "/img/chicken-tender-salad.jpg"
         }
       ]
     },
@@ -60,7 +106,8 @@
           "id": "wings",
           "name": "Wings / Boneless Tenders",
           "price": "5 for $11 / 10 for $18",
-          "detail": "Buffalo, BBQ, sweet chili, garlic parmesan, or honey BBQ."
+          "detail": "Buffalo, BBQ, sweet chili, garlic parmesan, or honey BBQ.",
+          "image": "/img/buffalo-tenders.jpg"
         },
         {
           "id": "frickles",
@@ -84,13 +131,14 @@
           "id": "nachos",
           "name": "Nachos",
           "price": "$12",
-          "detail": "Tri-colored chips, queso, olives, jalapeños, red onion, sour cream, pico de gallo. Add chili $3 or buffalo chicken $5."
+          "detail": "Tri-colored chips, queso, olives, jalape\u00f1os, red onion, sour cream, pico de gallo. Add chili $3 or buffalo chicken $5."
         },
         {
           "id": "quesadilla",
           "name": "Quesadilla",
-          "price": "$12 · Chicken $17 / Shrimp $18 / Steak $18 / Bacon $14",
-          "detail": "Grilled tortilla, Jack cheddar, jalapeños, sour cream, pico, onion ring. Add peppers and onions $1.99."
+          "price": "$12 \u00b7 Chicken $17 / Shrimp $18 / Steak $18 / Bacon $14",
+          "detail": "Grilled tortilla, Jack cheddar, jalape\u00f1os, sour cream, pico, onion ring. Add peppers and onions $1.99.",
+          "image": "/img/quesadilla.jpg"
         },
         {
           "id": "pretzel-bites",
@@ -151,7 +199,8 @@
           "id": "philly-bomb",
           "name": "Philly Cheesesteak Bomb",
           "price": "$17.49",
-          "detail": "Shaved prime ribeye, caramelized onions, mushrooms, peppers, American cheese, toasted sub."
+          "detail": "Shaved prime ribeye, caramelized onions, mushrooms, peppers, American cheese, toasted sub.",
+          "image": "/img/philly.jpg"
         },
         {
           "id": "fish-deluxe",
@@ -262,7 +311,8 @@
           "id": "mvp-special",
           "name": "MVP Special",
           "price": "$18.99",
-          "detail": "Melted cheddar, bacon, BBQ sauce, crispy onion rings."
+          "detail": "Melted cheddar, bacon, BBQ sauce, crispy onion rings.",
+          "image": "/img/mvp-special.jpg"
         }
       ]
     },
@@ -275,7 +325,8 @@
           "id": "mvp-smash",
           "name": "MVP Special Smash",
           "price": "$17.99",
-          "detail": ""
+          "detail": "",
+          "image": "/img/smash-burger.jpg"
         },
         {
           "id": "bacon-cheddar-smash",
@@ -312,13 +363,14 @@
           "id": "buffalo-wrap",
           "name": "Buffalo Chicken Wrap",
           "price": "$16.49",
-          "detail": "Buffalo shrimp $17.49."
+          "detail": "Buffalo shrimp $17.49.",
+          "image": "/img/buffalo-wrap.jpg"
         },
         {
           "id": "veggie-wrap",
           "name": "Grilled Veggie Wrap",
           "price": "$16.49",
-          "detail": "Sautéed mushrooms, peppers, onions, melted cheese."
+          "detail": "Saut\u00e9ed mushrooms, peppers, onions, melted cheese."
         },
         {
           "id": "bacon-ranch-wrap",
@@ -330,20 +382,51 @@
           "id": "honey-wrap",
           "name": "Honey Mustard Chicken Wrap",
           "price": "$16.49",
-          "detail": "Fried tenders, lettuce, diced tomatoes, shredded cheese, honey mustard."
+          "detail": "Fried tenders, lettuce, diced tomatoes, shredded cheese, honey mustard.",
+          "image": "/img/chicken-wrap.jpg"
         }
       ]
     },
     {
       "id": "pizza",
       "name": "Pizza",
-      "note": "Original bar pizza since 1959. Toppings +$1.29. Premium toppings +$1.59. Crushed garlic or ranch drizzle +$0.50. Gluten-friendly crust +$1.",
+      "note": "Original bar pizza recipe since 1959. Hand-crafted crust and the special sauce.",
       "items": [
         {
           "id": "bar-pizza",
           "name": "Original 10-inch Pizza",
           "price": "$12.99",
-          "detail": "Hand-crafted crust and the house sauce. Toppings: anchovies, black olives, mushrooms, peppers, onions, extra sauce, jalapeños, hamburger, BBQ chicken, buffalo chicken, pepperoni, bacon, sausage, extra cheese."
+          "detail": "Build your own on the house crust and sauce."
+        },
+        {
+          "id": "pizza-toppings",
+          "name": "Toppings",
+          "price": "+$1.29 each",
+          "detail": "Anchovies, black olives, mushrooms, peppers, onions, extra sauce, jalape\u00f1os, hamburger, BBQ chicken, buffalo chicken, pepperoni, bacon, sausage, extra cheese."
+        },
+        {
+          "id": "pizza-premium",
+          "name": "Premium toppings",
+          "price": "+$1.59 each",
+          "detail": ""
+        },
+        {
+          "id": "crushed-garlic",
+          "name": "Crushed Garlic",
+          "price": "+$0.50",
+          "detail": ""
+        },
+        {
+          "id": "ranch-drizzle",
+          "name": "Ranch Drizzle",
+          "price": "+$0.50",
+          "detail": ""
+        },
+        {
+          "id": "gluten-crust",
+          "name": "Gluten Friendly Crust",
+          "price": "+$1.00",
+          "detail": ""
         }
       ]
     },
@@ -422,80 +505,85 @@
     },
     {
       "id": "entrees",
-      "name": "Entrées",
-      "note": "Choice of potato and vegetable unless the item says otherwise.",
+      "name": "Entr\u00e9es",
+      "note": "Served with a choice of potato and vegetable, unless the item says otherwise.",
       "items": [
         {
           "id": "chicken-supreme",
           "name": "Chicken Supreme",
           "price": "$23.99",
-          "detail": "Crispy-coated chicken breast, supreme sauce."
-        },
-        {
-          "id": "turkey-tips",
-          "name": "Grilled Turkey Tips",
-          "price": "$28.99",
-          "detail": "BBQ, teriyaki, or Asian chili."
-        },
-        {
-          "id": "scrod",
-          "name": "Broiled Boston Scrod",
-          "price": "$25.99",
-          "detail": "Fresh fillet, lightly breaded, seasoned Ritz crumbs, baked with lemon butter."
-        },
-        {
-          "id": "salmon",
-          "name": "Broiled Salmon Fillet",
-          "price": "$26.99",
-          "detail": "Wild caught. Naked, blackened, or teriyaki."
+          "detail": "House special chicken breast with a crispy coating, topped with supreme sauce.",
+          "image": "/img/chicken-supreme.jpg"
         },
         {
           "id": "clam-strips",
           "name": "Fried Clam Strips",
           "price": "$19.99",
-          "detail": "Deep-fried clam strips."
-        },
-        {
-          "id": "fish-chips",
-          "name": "Fish & Chips",
-          "price": "$24.99",
-          "detail": "Fresh local fish, light breading, deep fried."
-        },
-        {
-          "id": "fried-shrimp",
-          "name": "Fried Shrimp",
-          "price": "$25.99",
-          "detail": "Golden fried shrimp, tartar sauce, lemon wedge."
-        },
-        {
-          "id": "steak-tips",
-          "name": "Sirloin Steak Tips",
-          "price": "$28.99",
-          "detail": "USDA Choice sirloin tips, BBQ house marinade or teriyaki."
+          "detail": "Traditional, no belly, deep-fried clam strips."
         },
         {
           "id": "baseball-sirloin",
           "name": "MVP Baseball Cut Sirloin",
           "price": "$29.99",
-          "detail": "Thick center-cut choice sirloin."
+          "detail": "Thick center-cut choice sirloin. AJ's favorite.",
+          "image": "/img/sirloin.jpg"
+        },
+        {
+          "id": "turkey-tips",
+          "name": "Grilled Turkey Tips",
+          "price": "$28.99",
+          "detail": "Lean turkey tips. BBQ, teriyaki, or Asian chili."
+        },
+        {
+          "id": "fish-chips",
+          "name": "Fish & Chips",
+          "price": "$24.99",
+          "detail": "Fresh fillets from local waters, light breading, deep fried."
         },
         {
           "id": "grilled-chicken",
           "name": "Grilled Chicken Breast",
           "price": "$23.99",
-          "detail": "Flame-broiled. Classic, BBQ, teriyaki, Asian chili, or bourbon glaze."
+          "detail": "Flame-broiled boneless skinless chicken breast. Classic, BBQ, teriyaki, Asian chili, or bourbon glaze."
+        },
+        {
+          "id": "scrod",
+          "name": "Broiled Boston Scrod",
+          "price": "$25.99",
+          "detail": "A longtime favorite. Fresh fillet, lightly breaded in seasoned Ritz crumbs, baked with lemon butter."
+        },
+        {
+          "id": "fried-shrimp",
+          "name": "Fried Shrimp",
+          "price": "$25.99",
+          "detail": "Crispy golden fried shrimp, served with tartar sauce and a lemon wedge."
         },
         {
           "id": "ribs",
           "name": "St. Louis Ribs",
           "price": "Half $18.99 / Full $26.99",
-          "detail": "Slow cooked, special sauce, grilled finish. Choice of one side."
+          "detail": "Slow cooked, brushed with special sauce, finished on the grill. Choice of one side."
+        },
+        {
+          "id": "salmon",
+          "name": "Broiled Salmon Fillet",
+          "price": "$26.99",
+          "detail": "Wild caught. Naked, blackened, or teriyaki.",
+          "image": "/img/salmon.jpg"
+        },
+        {
+          "id": "steak-tips",
+          "name": "Sirloin Steak Tips",
+          "price": "$28.99",
+          "detail": "USDA Choice sirloin tips. BBQ house marinade or teriyaki.",
+          "image": "/img/steak-tips.jpg"
         },
         {
           "id": "short-rib",
           "name": "Glazed Short Rib",
           "price": "$27.99",
-          "detail": "Boneless short rib, brown bourbon sauce, caramelized finish."
+          "detail": "Boneless short rib in a brown bourbon sauce, caramelized finish.",
+          "image": "/img/short-rib.jpg"
         }
       ]
     }

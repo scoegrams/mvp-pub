@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" role="img" aria-label="DoorDash">
+  <!-- Red swoosh mark -->
+  <path d="M24 8 C10 8 4 18 4 28 C4 42 14 50 28 50 C40 50 48 42 48 28 C48 16 40 8 24 8Z" fill="#FF3008"/>
+  <!-- White dash inside -->
+  <rect x="14" y="24" width="20" height="8" rx="4" fill="#fff"/>
+  <!-- DoorDash wordmark -->
+  <text x="58" y="37" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="22" fill="#FF3008" letter-spacing="-0.5">DoorDash</text>
+</svg>

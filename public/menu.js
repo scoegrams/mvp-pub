@@ -16,6 +16,19 @@
     price.className = "price";
     price.appendChild(text(item.price));
     entry.append(name, price);
+    if (item.image) {
+      entry.classList.add("has-photo");
+      const thumb = document.createElement("a");
+      thumb.className = "thumb";
+      thumb.href = "#gallery";
+      thumb.setAttribute("aria-label", "See photo of " + item.name);
+      const img = document.createElement("img");
+      img.src = item.image;
+      img.alt = item.name;
+      img.loading = "lazy";
+      thumb.appendChild(img);
+      entry.appendChild(thumb);
+    }
     if (item.detail) {
       const detail = document.createElement("p");
       detail.appendChild(text(item.detail));
@@ -66,26 +79,52 @@
         board.appendChild(footer);
       }
 
+      const shots = document.getElementById("shots");
+      if (shots) {
+        const seen = new Set([...shots.querySelectorAll("img")].map((img) => img.getAttribute("src")));
+        categories.forEach((category) => {
+          (category.items || []).forEach((item) => {
+            if (!item.image || seen.has(item.image)) return;
+            seen.add(item.image);
+            const fig = document.createElement("figure");
+            fig.className = "shot";
+            const img = document.createElement("img");
+            img.src = item.image;
+            img.alt = item.name;
+            img.loading = "lazy";
+            const cap = document.createElement("figcaption");
+            const a = document.createElement("a");
+            a.href = "#" + category.id;
+            a.appendChild(text(item.name));
+            a.addEventListener("click", (e) => {
+              e.preventDefault();
+              show(category.id, false);
+              document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
+            });
+            cap.appendChild(a);
+            fig.append(img, cap);
+            shots.appendChild(fig);
+          });
+        });
+      }
+
       const links = [...side.querySelectorAll("a")];
       const sections = [...board.querySelectorAll(".cat")];
-      if ("IntersectionObserver" in window && sections.length) {
-        const seen = new Map();
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => seen.set(entry.target.id, entry.isIntersecting));
-            const current = sections.find((section) => seen.get(section.id));
-            links.forEach((link) => {
-              if (current && link.getAttribute("href") === "#" + current.id) {
-                link.setAttribute("aria-current", "true");
-              } else {
-                link.removeAttribute("aria-current");
-              }
-            });
-          },
-          { rootMargin: "-30% 0px -55% 0px" }
-        );
-        sections.forEach((section) => observer.observe(section));
+      function show(id, scroll) {
+        sections.forEach((section) => { section.hidden = section.id !== id; });
+        links.forEach((link) => {
+          if (link.getAttribute("href") === "#" + id) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
+        if (scroll) side.scrollIntoView({ block: "nearest", behavior: "smooth" });
       }
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          show(link.getAttribute("href").slice(1), true);
+        });
+      });
+      if (sections.length) show(sections[0].id, false);
     })
     .catch(() => {
       board.textContent = "The menu didn’t load. Refresh the page.";
