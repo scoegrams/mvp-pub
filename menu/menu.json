@@ -7,11 +7,11 @@
       "note": "What people order most. The full menu is in the tabs.",
       "items": [
         {
-          "id": "fav-wings",
-          "name": "Wings",
-          "price": "5 for $11 / 10 for $18",
-          "detail": "Buffalo, BBQ, sweet chili, garlic parmesan, or honey BBQ.",
-          "image": "/img/wings.jpg"
+          "id": "fav-sirloin",
+          "name": "MVP Baseball Cut Sirloin",
+          "price": "$29.99",
+          "detail": "Thick center-cut choice sirloin. AJ's favorite.",
+          "image": "/img/sirloin.jpg"
         },
         {
           "id": "fav-smash",
@@ -28,11 +28,11 @@
           "image": "/img/philly.jpg"
         },
         {
-          "id": "fav-cobb",
-          "name": "MVP Cobb",
-          "price": "$18",
-          "detail": "Mixed greens, tomatoes, red onions, shredded cheese, bacon, blue cheese, hard-boiled egg, grilled chicken.",
-          "image": "/img/cobb-salad.jpg"
+          "id": "fav-supreme",
+          "name": "Chicken Supreme",
+          "price": "$23.99",
+          "detail": "House special chicken breast with a crispy coating, topped with supreme sauce.",
+          "image": "/img/chicken-supreme.jpg"
         },
         {
           "id": "fav-chowder",

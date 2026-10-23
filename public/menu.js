@@ -64,7 +64,7 @@
     return entry;
   }
 
-  fetch("/api/menu")
+  fetch("/api/menu", { cache: "no-store" })
     .then((response) => {
       if (!response.ok) throw new Error("menu");
       return response.json();
