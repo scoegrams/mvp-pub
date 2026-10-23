@@ -4,19 +4,28 @@
     {
       "id": "favorites",
       "name": "Favorites",
-      "note": "A short list of what people order most. The full menu is in the tabs.",
+      "note": "What people order most. The full menu is in the tabs.",
       "items": [
         {
-          "id": "fav-buffalo",
-          "name": "Buffalo Chicken Sandwich",
-          "price": "$16.49",
-          "detail": "Fried chicken in buffalo sauce, blue cheese, lettuce, tomato, grilled potato bun."
+          "id": "fav-wings",
+          "name": "Wings",
+          "price": "5 for $11 / 10 for $18",
+          "detail": "Buffalo, BBQ, sweet chili, garlic parmesan, or honey BBQ.",
+          "image": "/img/wings.jpg"
         },
         {
-          "id": "fav-house-burger",
-          "name": "House Burger",
-          "price": "$18.99",
-          "detail": "Sharp cheddar, crispy bacon, fried pickles, special sauce."
+          "id": "fav-smash",
+          "name": "MVP Special Smash",
+          "price": "$17.99",
+          "detail": "",
+          "image": "/img/smash-burger.jpg"
+        },
+        {
+          "id": "fav-philly",
+          "name": "Philly Cheesesteak Bomb",
+          "price": "$17.49",
+          "detail": "Shaved prime ribeye, caramelized onions, mushrooms, peppers, American cheese, toasted sub.",
+          "image": "/img/philly.jpg"
         },
         {
           "id": "fav-cobb",
@@ -24,13 +33,6 @@
           "price": "$18",
           "detail": "Mixed greens, tomatoes, red onions, shredded cheese, bacon, blue cheese, hard-boiled egg, grilled chicken.",
           "image": "/img/cobb-salad.jpg"
-        },
-        {
-          "id": "fav-wings",
-          "name": "Wings",
-          "price": "5 for $11 / 10 for $18",
-          "detail": "Buffalo, BBQ, sweet chili, garlic parmesan, or honey BBQ.",
-          "image": "/img/wings.jpg"
         },
         {
           "id": "fav-chowder",

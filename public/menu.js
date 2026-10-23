@@ -37,6 +37,33 @@
     return entry;
   }
 
+  function card(item) {
+    const entry = document.createElement("li");
+    entry.className = "fav-card";
+    if (item.image) {
+      const img = document.createElement("img");
+      img.src = item.image;
+      img.alt = item.name;
+      img.loading = "lazy";
+      entry.appendChild(img);
+    }
+    const copy = document.createElement("div");
+    copy.className = "fav-copy";
+    const name = document.createElement("h4");
+    name.appendChild(text(item.name));
+    const price = document.createElement("span");
+    price.className = "price";
+    price.appendChild(text(item.price));
+    copy.append(name, price);
+    if (item.detail) {
+      const detail = document.createElement("p");
+      detail.appendChild(text(item.detail));
+      copy.appendChild(detail);
+    }
+    entry.appendChild(copy);
+    return entry;
+  }
+
   fetch("/api/menu")
     .then((response) => {
       if (!response.ok) throw new Error("menu");
@@ -67,7 +94,12 @@
         }
         const list = document.createElement("ul");
         list.className = "menu-list";
-        (category.items || []).forEach((item) => list.appendChild(row(item)));
+        if (category.id === "favorites") {
+          list.classList.add("fav-grid");
+          (category.items || []).forEach((item) => list.appendChild(card(item)));
+        } else {
+          (category.items || []).forEach((item) => list.appendChild(row(item)));
+        }
         section.appendChild(list);
         board.appendChild(section);
       });
