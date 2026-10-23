@@ -12,9 +12,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=33">
+  <link rel="stylesheet" href="/styles.css?v=41">
 </head>
 <body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="gold-plate" x="-5%" y="-15%" width="110%" height="140%" color-interpolation-filters="sRGB">
+        <!-- fine bevel: small blur, shallow relief -->
+        <feGaussianBlur in="SourceAlpha" stdDeviation="0.8" result="bump"/>
+        <feDiffuseLighting in="bump" surfaceScale="2.4" diffuseConstant="1.3" lighting-color="#ffffff" result="shade">
+          <feDistantLight azimuth="235" elevation="62"/>
+        </feDiffuseLighting>
+        <!-- polished face tone from the text gradient, shaded by the bevel -->
+        <feBlend in="SourceGraphic" in2="shade" mode="multiply" result="face"/>
+        <!-- thin, hard edge glint -->
+        <feSpecularLighting in="bump" surfaceScale="2.4" specularConstant="1.5" specularExponent="40" lighting-color="#fffbe8" result="glint">
+          <feDistantLight azimuth="235" elevation="30"/>
+        </feSpecularLighting>
+        <feComposite in="face" in2="glint" operator="arithmetic" k1="0" k2="1" k3="0.85" k4="0" result="lit"/>
+        <feComposite in="lit" in2="SourceAlpha" operator="in" result="plate"/>
+        <!-- hairline dark edge keeps the letterforms crisp -->
+        <feMorphology in="SourceAlpha" operator="dilate" radius="0.9" result="rim"/>
+        <feFlood flood-color="#3b2208"/>
+        <feComposite in2="rim" operator="in" result="edge"/>
+        <!-- tight contact shadow -->
+        <feOffset in="rim" dx="0" dy="2" result="drop"/>
+        <feGaussianBlur in="drop" stdDeviation="1.6" result="dropBlur"/>
+        <feFlood flood-color="#150a03" flood-opacity="0.6"/>
+        <feComposite in2="dropBlur" operator="in" result="shadow"/>
+        <feMerge>
+          <feMergeNode in="shadow"/>
+          <feMergeNode in="edge"/>
+          <feMergeNode in="plate"/>
+        </feMerge>
+      </filter>
+    </defs>
+  </svg>
 
   <header class="top">
     <a class="brand" href="#top" aria-label="Michael's Village Pub home">
@@ -37,8 +71,7 @@
 
     <section class="hero">
       <img class="crest" src="/img/logo.png" alt="MVP, Michael's Village Pub. Great food + good times." width="450" height="416">
-      <h1>Michael's Village Pub</h1>
-      <p class="tagline">Great Food + Good Times</p>
+      <h1>Great Food<br>+ Good Times</h1>
       <p class="addr">2294 State Rd, Plymouth, MA 02360</p>
       <div class="actions">
         <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=2294+State+Rd+Plymouth+MA+02360" target="_blank" rel="noopener">Get Directions</a>
@@ -113,7 +146,8 @@
           </div>
           <div>
             <p>Join Union Loyalty and earn rewards when you visit the pub.</p>
-            <a class="btn ghost-dark" href="https://clip.getunion.com/status/?v=250f31f3" target="_blank" rel="noopener">Sign up for Loyalty</a>
+            <a class="btn ghost-dark loyalty" href="https://clip.getunion.com/status/?v=250f31f3" target="_blank" rel="noopener"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.6l2.7 6.3 6.8.6-5.2 4.5 1.6 6.6L12 16.2 6.1 19.6l1.6-6.6L2.5 8.5l6.8-.6L12 1.6z"/></svg>Sign up for Loyalty<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.6l2.7 6.3 6.8.6-5.2 4.5 1.6 6.6L12 16.2 6.1 19.6l1.6-6.6L2.5 8.5l6.8-.6L12 1.6z"/></svg></a>
+            <p class="tip">On the next page, tap the blue Sign up for status button.</p>
           </div>
         </div>
       </div>

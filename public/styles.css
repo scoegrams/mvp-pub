@@ -222,6 +222,32 @@ h1 {
   color: var(--cream-light);
 }
 
+.hero:not(.slim) h1 {
+  margin: 0.2rem 0 0;
+  max-width: none;
+  font-size: clamp(2.35rem, 6.2vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  word-spacing: 0.08em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: #d9aa3c;
+  /* Polished face: soft horizon band like reflective metal */
+  background-image: linear-gradient(
+    180deg,
+    #fbe9b0 0%,
+    #efc85e 36%,
+    #c8942f 52%,
+    #e6b94d 72%,
+    #f8dc8c 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Gold plate: thin bevel and edge glint follow the letter shapes */
+  filter: url(#gold-plate);
+}
+
 .tagline {
   margin-top: 0.75rem;
   font-family: var(--display);
@@ -311,6 +337,19 @@ h2 {
 .menu-head h2 { margin-bottom: 0; }
 .menu-more { margin: 0; }
 .btn.ghost-dark { background: transparent; color: var(--brown); border: 2px solid var(--brown); }
+
+.btn.loyalty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.btn.loyalty .star {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  fill: var(--amber);
+}
 
 .menu-layout {
   display: grid;
@@ -767,6 +806,16 @@ h2 {
 }
 
 .gift .btn { margin-top: 1.15rem; }
+
+.gift .tip {
+  margin-top: 0.75rem;
+  max-width: 24rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-wrap: balance;
+  color: var(--brown);
+}
 
 footer .foot-links {
   display: flex;
