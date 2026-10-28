@@ -7,15 +7,21 @@
     return document.createTextNode(value || "");
   }
 
+  function shown(value) {
+    return String(value || "")
+      .replace(/\s*\+?\$\d+(?:\.\d{2})?(?:\s*each)?/g, "")
+      .replace(/\.{2,}/g, ".")
+      .replace(/\s{2,}/g, " ")
+      .replace(/\s+([.,])/g, "$1")
+      .trim();
+  }
+
   function row(item) {
     const entry = document.createElement("li");
     entry.className = "menu-row";
     const name = document.createElement("h4");
     name.appendChild(text(item.name));
-    const price = document.createElement("span");
-    price.className = "price";
-    price.appendChild(text(item.price));
-    entry.append(name, price);
+    entry.append(name);
     if (item.image) {
       entry.classList.add("has-photo");
       const thumb = document.createElement("a");
@@ -29,9 +35,10 @@
       thumb.appendChild(img);
       entry.appendChild(thumb);
     }
-    if (item.detail) {
+    const detailText = shown(item.detail);
+    if (detailText) {
       const detail = document.createElement("p");
-      detail.appendChild(text(item.detail));
+      detail.appendChild(text(detailText));
       entry.appendChild(detail);
     }
     return entry;
@@ -51,13 +58,11 @@
     copy.className = "fav-copy";
     const name = document.createElement("h4");
     name.appendChild(text(item.name));
-    const price = document.createElement("span");
-    price.className = "price";
-    price.appendChild(text(item.price));
-    copy.append(name, price);
-    if (item.detail) {
+    copy.append(name);
+    const detailText = shown(item.detail);
+    if (detailText) {
       const detail = document.createElement("p");
-      detail.appendChild(text(item.detail));
+      detail.appendChild(text(detailText));
       copy.appendChild(detail);
     }
     entry.appendChild(copy);
@@ -86,10 +91,11 @@
         const heading = document.createElement("h3");
         heading.appendChild(text(category.name));
         section.appendChild(heading);
-        if (category.note) {
+        const noteText = shown(category.note);
+        if (noteText) {
           const note = document.createElement("p");
           note.className = "fine";
-          note.appendChild(text(category.note));
+          note.appendChild(text(noteText));
           section.appendChild(note);
         }
         const list = document.createElement("ul");

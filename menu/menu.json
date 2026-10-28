@@ -38,8 +38,14 @@
           "id": "fav-chowder",
           "name": "New England Clam Chowder",
           "price": "Cup $10 / Bowl $12",
-          "detail": "",
+          "detail": "Cup or bowl.",
           "image": "/img/chowder.jpg"
+        },
+        {
+          "id": "pretzel-bites",
+          "name": "Bavarian Beer Cheese Pretzel Bites",
+          "price": "$13",
+          "detail": "Warm pretzel bites, pub mustard, beer cheese sauce."
         }
       ]
     },
@@ -52,14 +58,14 @@
           "id": "clam-chowder",
           "name": "New England Clam Chowder",
           "price": "Cup $10 / Bowl $12",
-          "detail": "",
+          "detail": "Cup or bowl.",
           "image": "/img/chowder.jpg"
         },
         {
           "id": "texas-chili",
           "name": "Texas Beef Chili",
           "price": "Cup $10 / Bowl $12",
-          "detail": "",
+          "detail": "Cup or bowl.",
           "image": "/img/chili.jpg"
         }
       ]
@@ -67,7 +73,7 @@
     {
       "id": "salads",
       "name": "Salads",
-      "note": "Dressings: blue cheese, ranch, honey mustard, balsamic vinaigrette, or house. Add steak tips $10, grilled salmon $10, grilled chicken $5, or blackened shrimp $6. Side Caesar or side House available.",
+      "note": "Dressings: blue cheese, ranch, honey mustard, balsamic vinaigrette, or house. Add steak tips, grilled salmon, grilled chicken, or blackened shrimp. Side Caesar or side House available.",
       "items": [
         {
           "id": "caesar",
@@ -87,7 +93,7 @@
           "id": "mvp-cobb",
           "name": "MVP Cobb",
           "price": "$18",
-          "detail": "Mixed greens, tomatoes, red onions, shredded cheese, bacon, blue cheese, hard-boiled egg, grilled chicken. Blackened shrimp $19.",
+          "detail": "Mixed greens, tomatoes, red onions, shredded cheese, bacon, blue cheese, hard-boiled egg, grilled chicken. Blackened shrimp available.",
           "image": "/img/cobb-salad.jpg"
         },
         {
@@ -106,9 +112,9 @@
       "items": [
         {
           "id": "wings",
-          "name": "Wings / Boneless Tenders",
+          "name": "Wings or Tenders",
           "price": "5 for $11 / 10 for $18",
-          "detail": "Buffalo, BBQ, sweet chili, garlic parmesan, or honey BBQ.",
+          "detail": "5 or 10. Buffalo, BBQ, sweet chili, garlic parmesan, or honey BBQ.",
           "image": "/img/buffalo-tenders.jpg"
         },
         {
@@ -121,7 +127,7 @@
           "id": "loaded-tots",
           "name": "Loaded Tots or Fries",
           "price": "$14",
-          "detail": "Applewood bacon, melted cheddar jack, scallions. Add chili $3."
+          "detail": "Applewood bacon, melted cheddar jack, scallions. Add chili."
         },
         {
           "id": "philly-egg-rolls",
@@ -133,20 +139,14 @@
           "id": "nachos",
           "name": "Nachos",
           "price": "$12",
-          "detail": "Tri-colored chips, queso, olives, jalape\u00f1os, red onion, sour cream, pico de gallo. Add chili $3 or buffalo chicken $5."
+          "detail": "Tri-colored chips, queso, olives, jalape\u00f1os, red onion, sour cream, pico de gallo. Add chili or buffalo chicken."
         },
         {
           "id": "quesadilla",
           "name": "Quesadilla",
           "price": "$12 \u00b7 Chicken $17 / Shrimp $18 / Steak $18 / Bacon $14",
-          "detail": "Grilled tortilla, Jack cheddar, jalape\u00f1os, sour cream, pico, onion ring. Add peppers and onions $1.99.",
+          "detail": "Chicken, shrimp, steak, or bacon. Grilled tortilla, Jack cheddar, jalape\u00f1os, sour cream, pico, onion ring. Add peppers and onions.",
           "image": "/img/quesadilla.jpg"
-        },
-        {
-          "id": "pretzel-bites",
-          "name": "Bavarian Beer Cheese Pretzel Bites",
-          "price": "$13",
-          "detail": "Warm pretzel bites, pub mustard, beer cheese sauce."
         },
         {
           "id": "buffalo-dip",
@@ -170,14 +170,14 @@
           "id": "crunch-attack",
           "name": "Crunch Attack",
           "price": "$16",
-          "detail": "Steak, buffalo chicken, and southwest rolls with dipping sauces and an onion ring. No substitutes."
+          "detail": "Steak, buffalo chicken, and southwest rolls with dipping sauces and an onion ring garnish. No substitutes."
         }
       ]
     },
     {
       "id": "sandwiches",
       "name": "Sandwiches",
-      "note": "Pickles and fries, tots, or coleslaw. Sweet potato fries +$1.49. Onion rings +$1.59.",
+      "note": "Served with pickles and your choice of French fries or tater tots. Sweet potato fries +$1.49.",
       "items": [
         {
           "id": "cajun-chicken",
@@ -295,7 +295,7 @@
     {
       "id": "handhelds",
       "name": "Handhelds",
-      "note": "Pickles and fries, tots, or coleslaw. Sweet potato fries +$1.49. Onion rings +$1.59. Cheese +$1, bacon +$2, chili +$3, mushrooms, peppers, or onions +$0.99.",
+      "note": "Served with pickles and your choice of French fries or tater tots. Sweet potato fries +$1.49. Mushrooms, peppers, or onions $0.99 each.",
       "items": [
         {
           "id": "all-american",
@@ -353,7 +353,7 @@
     {
       "id": "wraps",
       "name": "It's a Wrap",
-      "note": "Pickles and fries, tots, or coleslaw. Sweet potato fries +$1.49. Onion rings +$1.59.",
+      "note": "Served with pickles and your choice of French fries or tater tots. Sweet potato fries +$1.49.",
       "items": [
         {
           "id": "caesar-wrap",
@@ -365,7 +365,7 @@
           "id": "buffalo-wrap",
           "name": "Buffalo Chicken Wrap",
           "price": "$16.49",
-          "detail": "Buffalo shrimp $17.49.",
+          "detail": "Buffalo shrimp available.",
           "image": "/img/buffalo-wrap.jpg"
         },
         {
@@ -396,21 +396,21 @@
       "items": [
         {
           "id": "bar-pizza",
-          "name": "Original 10-inch Pizza",
+          "name": "Build Your Own",
           "price": "$12.99",
-          "detail": "Build your own on the house crust and sauce."
+          "detail": ""
         },
         {
           "id": "pizza-toppings",
           "name": "Toppings",
           "price": "+$1.29 each",
-          "detail": "Anchovies, black olives, mushrooms, peppers, onions, extra sauce, jalape\u00f1os, hamburger, BBQ chicken, buffalo chicken, pepperoni, bacon, sausage, extra cheese."
+          "detail": "Anchovies, black olives, mushrooms, peppers, onions, extra sauce, jalape\u00f1os. $1.29 each."
         },
         {
           "id": "pizza-premium",
           "name": "Premium toppings",
           "price": "+$1.59 each",
-          "detail": ""
+          "detail": "Hamburger, BBQ chicken tenders, buffalo chicken tenders, pepperoni, sausage, bacon, extra cheese. $1.59 each."
         },
         {
           "id": "crushed-garlic",
@@ -564,7 +564,7 @@
           "id": "ribs",
           "name": "St. Louis Ribs",
           "price": "Half $18.99 / Full $26.99",
-          "detail": "Slow cooked, brushed with special sauce, finished on the grill. Choice of one side."
+          "detail": "Half or full. Slow cooked, brushed with special sauce, finished on the grill. Choice of one side."
         },
         {
           "id": "salmon",
