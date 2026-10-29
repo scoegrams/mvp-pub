@@ -1,6 +1,6 @@
-/* First small scroll from the top carries the visitor to the menu, once. */
+/* First small scroll from the top carries the visitor to the specials, once. */
 (function () {
-  const menu = document.getElementById("menu");
+  const menu = document.getElementById("specials") || document.getElementById("menu");
   if (!menu || window.scrollY > 4 || location.hash) return;
 
   let done = false;

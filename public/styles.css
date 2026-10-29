@@ -322,6 +322,143 @@ h2 {
 
 .band h2 { color: var(--brown); }
 
+.special-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.special-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1.35rem 1.4rem 1.5rem;
+  background: var(--cream-light);
+  border: 3px solid var(--gold);
+  border-radius: 6px;
+}
+
+.special-card h3,
+dialog.special h3 {
+  margin: 1.15rem 0 0.4rem;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  word-spacing: 0.12em;
+  color: var(--brown);
+}
+
+.special-card h3 { margin: 0; font-size: 1.6rem; }
+
+.special-card .when,
+dialog.special .when { font-weight: 700; }
+
+.deal {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 2.4rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: var(--brown);
+}
+
+.special-card .fine { margin: 0; color: var(--brown); }
+
+.special-card .btn { margin-top: 0.85rem; }
+
+dialog.special {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  width: min(760px, calc(100% - 1.5rem));
+  max-height: min(86vh, 920px);
+  margin: 0;
+  padding: 1.35rem 1.4rem 1.5rem;
+  overflow: auto;
+  border: 3px solid var(--gold);
+  border-radius: 6px;
+  background: var(--cream-light);
+  color: var(--brown-dark);
+}
+
+dialog.special::backdrop { background: rgba(24, 12, 6, 0.72); }
+
+dialog.special h2 {
+  margin-bottom: 0.35rem;
+  color: var(--brown);
+}
+
+dialog.special .deal { margin: 0.35rem 0 0.15rem; }
+
+dialog.special .note {
+  margin: 0.35rem 0 0.2rem;
+  font-weight: 700;
+}
+
+dialog.special .special-close {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 0.85rem;
+  background: var(--amber);
+  color: var(--brown-dark);
+  border-color: var(--brown-dark);
+}
+
+.special-list { margin: 0; }
+
+.special-list li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #cbb98a;
+}
+
+.special-list strong { font-weight: 700; }
+
+.special-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.5rem;
+}
+
+.special-prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.5rem;
+  margin: 0;
+}
+
+.special-prices li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #cbb98a;
+  font-weight: 700;
+}
+
+.ask {
+  margin: 1.15rem 0 0.35rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.special-notes {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+}
+
+.special-notes p { margin: 0.35rem 0 0; }
+
+@media (max-width: 720px) {
+  .special-grid,
+  .special-cols,
+  .special-prices { grid-template-columns: 1fr; }
+}
+
 .soon { font-weight: 700; font-size: 1.25rem; }
 
 /* Menu: tabs, one category at a time */

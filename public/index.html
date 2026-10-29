@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=43">
+  <link rel="stylesheet" href="/styles.css?v=47">
 </head>
 <body>
 
@@ -75,6 +75,7 @@
     </button>
     <nav id="site-nav" aria-label="Primary">
       <a href="/takeout">Takeout</a>
+      <a href="#specials">Specials</a>
       <a href="#menu">Food Menu</a>
       <a href="#gift-cards">Gift Cards</a>
       <!-- <a href="/functions">Functions</a> -->
@@ -91,6 +92,28 @@
       <div class="actions">
         <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=2294+State+Rd+Plymouth+MA+02360" target="_blank" rel="noopener">Get Directions</a>
         <a class="btn ghost" href="/takeout">Order Takeout</a>
+      </div>
+    </section>
+
+    <section class="band specials" id="specials">
+      <div class="wrap">
+        <h2>Specials</h2>
+        <div class="special-grid">
+          <article class="special-card">
+            <h3>Early Bird</h3>
+            <p class="when">Monday through Friday<br>3:30–5:30 PM</p>
+            <p class="deal">$14.99</p>
+            <p class="fine">Not available for takeout.</p>
+            <button class="btn" type="button" data-special="early-bird">See the menu</button>
+          </article>
+          <article class="special-card">
+            <h3>Lunch</h3>
+            <p class="when">Monday through Friday<br>11:30 AM–3:30 PM</p>
+            <p class="deal">$14.99</p>
+            <p class="fine">Not available for takeout.</p>
+            <button class="btn" type="button" data-special="lunch">See the menu</button>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -193,6 +216,92 @@
 
   </main>
 
+  <dialog class="special" id="early-bird" aria-labelledby="early-bird-title">
+    <button class="btn special-close" type="button" data-close>Close</button>
+    <h2 id="early-bird-title">Early Bird Specials</h2>
+    <p class="when">Monday through Friday · 3:30–5:30 PM</p>
+    <p class="deal">$14.99</p>
+    <p class="note">Not available for takeout.</p>
+    <h3>Entrées</h3>
+    <ul class="special-list">
+      <li>Fried Boneless Chicken with Supreme Sauce</li>
+      <li>Broiled Boston Scrod with a Crumb Coating</li>
+      <li>Grilled Boneless Chicken (Plain, BBQ or Teriyaki)</li>
+      <li>Fried Clam Strips</li>
+      <li>Fried Shrimp Basket</li>
+    </ul>
+    <p class="fine">Above comes with choice of potato and vegetable.</p>
+    <h3>Additional Options</h3>
+    <ul class="special-list">
+      <li><strong>Fish &amp; Chips Basket</strong> Local cod.</li>
+      <li><strong>Mac &amp; Cheese Bowl</strong> Plain, buffalo chicken, BBQ pulled pork, or bacon crumbles.</li>
+    </ul>
+    <h3>Salad &amp; Soup</h3>
+    <ul class="special-prices">
+      <li><span>Side House Salad</span><span>$6</span></li>
+      <li><span>Side Caesar Salad</span><span>$7</span></li>
+      <li><span>Cup N.E. Clam Chowder</span><span>$7</span></li>
+      <li><span>Cup Texas Chili</span><span>$7</span></li>
+    </ul>
+    <p class="ask">Ask your server for our dessert menu.</p>
+    <div class="special-notes">
+      <p>Menu prices exclude a 3% administrative fee. This fee is not gratuity and is not distributed to staff.</p>
+      <p>Consuming raw or undercooked meat, fish, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.</p>
+      <p>Before placing your order, please inform your server if someone in your party has a food allergy.</p>
+    </div>
+  </dialog>
+
+  <dialog class="special" id="lunch" aria-labelledby="lunch-title">
+    <button class="btn special-close" type="button" data-close>Close</button>
+    <h2 id="lunch-title">Lunch Specials</h2>
+    <p class="when">Monday through Friday · 11:30 AM–3:30 PM</p>
+    <p class="deal">$14.99</p>
+    <p class="note">Not available for takeout.</p>
+    <h3>Entrées</h3>
+    <ul class="special-list">
+      <li>Fried Boneless Chicken with Supreme Sauce</li>
+      <li>Broiled Boston Scrod with a Crumb Coating</li>
+      <li>Grilled Boneless Chicken (Plain, BBQ or Teriyaki)</li>
+      <li>Fried Clam Strips</li>
+      <li>Fried Shrimp Basket</li>
+    </ul>
+    <p class="fine">Above comes with choice of potato and vegetable.</p>
+    <h3>Additional Options</h3>
+    <ul class="special-list">
+      <li><strong>Fish &amp; Chips Basket</strong> Local cod.</li>
+      <li><strong>Mac &amp; Cheese Bowl</strong> Plain, buffalo chicken, BBQ pulled pork, or bacon crumbles.</li>
+    </ul>
+    <h3>Wraps &amp; Burgers</h3>
+    <p class="fine">Served with fries, tater tots, or coleslaw. Sweet potato fries $1.49. Onion rings $1.49.</p>
+    <div class="special-cols">
+      <ul class="special-list">
+        <li><strong>All American Burger</strong> 1/2 pound open-flame grilled patty, American cheese, lettuce and tomato.</li>
+        <li><strong>House Burger</strong> 1/2 pound open-flame grilled patty, cheddar cheese, crispy bacon, fried pickles and special sauce.</li>
+        <li><strong>MVP Special</strong> 1/2 pound open-flame grilled patty, cheddar cheese, crispy bacon, tangy BBQ sauce and crispy onion rings.</li>
+      </ul>
+      <ul class="special-list">
+        <li><strong>Chicken Caesar Wrap</strong> Romaine lettuce, chicken tenders, Parmesan cheese, Caesar dressing and croutons.</li>
+        <li><strong>Buffalo Chicken Wrap</strong> Green leaf lettuce, buffalo tossed chicken tenders, tomatoes and blue cheese dressing.</li>
+        <li><strong>Grilled Veggie Wrap</strong> Sautéed mushrooms, peppers, onions and cheddar cheese.</li>
+        <li><strong>Chicken Bacon Ranch Wrap</strong> Grilled chicken, bacon, ranch dressing, lettuce and diced tomatoes.</li>
+        <li><strong>Honey Mustard Chicken Wrap</strong> Fried chicken tenders, blended lettuce, diced tomatoes and shredded cheese tossed in honey mustard dressing.</li>
+      </ul>
+    </div>
+    <h3>Salad &amp; Soup</h3>
+    <ul class="special-prices">
+      <li><span>Side House Salad</span><span>$6</span></li>
+      <li><span>Side Caesar Salad</span><span>$7</span></li>
+      <li><span>Cup N.E. Clam Chowder</span><span>$7</span></li>
+      <li><span>Cup Texas Chili</span><span>$7</span></li>
+    </ul>
+    <p class="ask">Ask your server for our dessert menu.</p>
+    <div class="special-notes">
+      <p>Menu prices exclude a 3% administrative fee. This fee is not gratuity and is not distributed to staff.</p>
+      <p>Consuming raw or undercooked meat, fish, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.</p>
+      <p>Before placing your order, please inform your server if someone in your party has a food allergy.</p>
+    </div>
+  </dialog>
+
   <dialog class="view" id="view" aria-label="Photo">
     <button type="button" class="btn ghost view-close">Close</button>
     <figure class="view-pic">
@@ -213,6 +322,16 @@
   <script src="/nav.js"></script>
   <script src="/first-scroll.js"></script>
   <script src="/metal.js"></script>
-  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    document.querySelectorAll("[data-special]").forEach((button) => {
+      const dialog = document.getElementById(button.getAttribute("data-special"));
+      button.addEventListener("click", () => dialog.showModal());
+      dialog.querySelector("[data-close]").addEventListener("click", () => dialog.close());
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    });
+  </script>
 </body>
 </html>
