@@ -1028,6 +1028,23 @@ address { font-style: normal; font-size: 1.15rem; margin-top: 0.25rem; }
   scroll-margin-top: 5.5rem;
 }
 
+.takeout .facts { grid-template-columns: repeat(2, minmax(0, 18rem)); }
+
+.takeout .order-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  align-items: flex-end;
+  margin: 0 0 1.5rem;
+}
+
+.takeout .order-picks .label { margin-bottom: 0.6rem; }
+
+.takeout .delivery-logo,
+.takeout .delivery-logo.wordmark { height: 132px; }
+
+.takeout .delivery-logo.wordmark { width: 220px; }
+
 .delivery-apps {
   display: flex;
   flex-wrap: wrap;

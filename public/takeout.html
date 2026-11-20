@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=52">
+  <link rel="stylesheet" href="/styles.css?v=53">
 </head>
 <body class="takeout">
 
@@ -70,80 +70,38 @@
             <p>Sun–Wed 12–9<br>Thu–Sat 12–10</p>
           </div>
           <div class="fact">
-            <p class="label">In House</p>
-            <p><a href="https://clip.getunion.com/?venue_uuid=250f31f3-f88a-4987-ac52-287b2252db63&table_name=TOGO" target="_blank" rel="noopener">Order in house</a></p>
-          </div>
-          <div class="fact">
             <p class="label">Call the pub</p>
             <p><a href="tel:+15088888022">(508) 888-8022</a></p>
           </div>
-          <div class="fact">
-            <p class="label">Delivery</p>
-            <p><a href="/#delivery">Uber Eats and DoorDash</a></p>
-            <p class="fine">$20 minimum. Last order 30 minutes before close.</p>
-          </div>
-        </div>
-        <p class="note">Prices exclude a 3% administrative fee and all applicable delivery fees. Subject to meals tax. Prices and menu items are subject to change without prior notice.</p>
-
-        <div class="menu-cols">
-          <div>
-            <h2>Wraps</h2>
-            <p class="fine">Served with pickles and your choice of French fries or tater tots. Sweet potato fries +$1.49.</p>
-            <ul class="prices">
-              <li><span>Chicken Caesar Wrap</span><span>$16.49</span></li>
-              <li><span>Buffalo Chicken Wrap</span><span>$16.49</span></li>
-              <li><span>Chicken Bacon Ranch Wrap</span><span>$16.49</span></li>
-              <li><span>Honey Mustard Chicken Wrap</span><span>$16.49</span></li>
-            </ul>
-
-            <h2>Salads</h2>
-            <ul class="prices">
-              <li><span>Classic Caesar</span><span>$12</span></li>
-              <li><span>Side Caesar</span><span>$7</span></li>
-              <li><span>Honey Mustard Chicken Salad</span><span>$16.49</span></li>
-              <li><span>House Salad</span><span>$10</span></li>
-              <li><span>Side House Salad</span><span>$6</span></li>
-              <li><span>Add buffalo chicken</span><span>+$5</span></li>
-            </ul>
-            <p class="fine">Dressings: house, blue cheese, ranch, honey mustard, balsamic vinaigrette.</p>
-          </div>
-
-          <div>
-            <h2>Favorites</h2>
-            <p class="fine">Wings or Tenders.</p>
-            <ul class="prices">
-              <li><span>Wings, 5</span><span>$11</span></li>
-              <li><span>Wings, 10</span><span>$18</span></li>
-              <li><span>Chicken Tenders, 5</span><span>$11</span></li>
-              <li><span>Chicken Tenders, 10</span><span>$18</span></li>
-              <li><span>Pretzel Bites</span><span>$13</span></li>
-            </ul>
-            <p class="fine">Naked, buffalo, BBQ, Asian chili, or garlic Parmigiana.</p>
-            <ul class="prices">
-              <li><span>Buffalo Chicken Sandwich</span><span>$16.49</span></li>
-              <li><span>Hot Honey Chicken Sandwich</span><span>$16.49</span></li>
-            </ul>
-            <p class="fine">Served with pickles and your choice of French fries or tater tots. Sweet potato fries +$1.49.</p>
-
-            <h2>Sides &amp; Desserts</h2>
-            <ul class="prices">
-              <li><span>Side Fries</span><span>$5</span></li>
-              <li><span>Side Sweet Potato Fries</span><span>$6</span></li>
-              <li><span>Side Tater Tots</span><span>$5</span></li>
-              <li><span>Chocolate Chip Cookie</span><span>$1.29</span></li>
-              <li><span>Fudge Brownie</span><span>$1.99</span></li>
-            </ul>
-
-            <h2>Beverages</h2>
-            <ul class="prices">
-              <li><span>20 oz: Coke, Diet Coke, Sprite, Smart Water</span><span>$2.99</span></li>
-              <li><span>2 Ltr: Coke, Diet Coke, Sprite</span><span>$4.99</span></li>
-            </ul>
-          </div>
         </div>
 
-        <p class="fine">This is the takeout list. The full dining menu is on the <a href="/#menu">home page</a>.</p>
-        <p class="fine">Before placing your order, please inform your server if a person in your party has a food allergy. Prices and menu items are subject to change without prior notice. Subject to meals tax. Prices exclude a 3% administrative fee and all applicable delivery fees.</p>
+        <div class="order-picks">
+          <div>
+            <p class="label">In House</p>
+            <div class="delivery-apps">
+              <a href="https://clip.getunion.com/?venue_uuid=250f31f3-f88a-4987-ac52-287b2252db63&table_name=TOGO" target="_blank" rel="noopener" aria-label="Order in house">
+                <img src="/img/union-logo.png" alt="" class="delivery-logo wordmark" width="500" height="250">
+              </a>
+            </div>
+          </div>
+          <div>
+            <p class="label">DoorDash</p>
+            <div class="delivery-apps">
+              <a href="https://order.online/store/-49867203?hideModal=true" target="_blank" rel="noopener" aria-label="Order on DoorDash">
+                <img src="/img/doordash-logo.jpg" alt="" class="delivery-logo" width="735" height="626">
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="note">DoorDash has a $20 minimum. Last delivery order is 30 minutes before close. Prices exclude a 3% administrative fee and all applicable delivery fees. Subject to meals tax.</p>
+
+        <div class="menu-head">
+          <h2>Menu</h2>
+        </div>
+        <div class="menu-layout">
+          <nav id="menu-jump" class="menu-side" aria-label="Menu sections"></nav>
+          <div id="menu-board">Loading the menu…</div>
+        </div>
 
         <div class="social-row">
           <p class="label">Find us on</p>
@@ -169,6 +127,7 @@
     <p class="credit"><a href="https://shinddo.com" target="_blank" rel="noopener">Designed by Shinddo Software</a></p>
   </footer>
 
+  <script src="/menu.js?v=7"></script>
   <script src="/nav.js"></script>
   <script src="/metal.js"></script>
   <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>

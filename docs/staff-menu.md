@@ -19,7 +19,7 @@ There is no separate account. The password box on that page is the login. Ask th
 2. Edit the Name or the Detail.
 3. Click **Save menu** at the bottom.
 4. Wait until the page says **Saved to MongoDB.**
-5. Open the home page and refresh. The food menu should show the new wording.
+5. Open the home page and the takeout page, then refresh. Both menus should show the new wording. The takeout page leaves the photos off.
 
 ## Add a dish
 
@@ -54,12 +54,11 @@ To take a picture off the site, click **Remove photo**, then **Save menu**.
 
 ## What this page does not change
 
-- The takeout menu and its prices
 - Early Bird and Lunch specials
 - Hours, phone number, and address
 - Gift cards
 
-Guests do not see dish prices on the dining menu. The Price box is kept for your records. Dollar amounts typed into Detail are also left off the public menu.
+Guests do not see dish prices on the dining menu or the takeout menu. The Price box is kept for your records. Dollar amounts typed into Detail are also left off the public menu. Photos stay off the takeout page.
 
 ## If it does not save
 
