@@ -1038,12 +1038,14 @@ address { font-style: normal; font-size: 1.15rem; margin-top: 0.25rem; }
   margin-top: 2.5rem;
 }
 
-.takeout .order-sections h2 {
+body.takeout .order-sections h2 {
   margin-bottom: 1rem;
-  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
-  letter-spacing: 0.08em;
-  word-spacing: 0.08em;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  letter-spacing: 0.03em;
+  word-spacing: 0.04em;
+  line-height: 1.15;
   text-align: center;
+  text-wrap: balance;
 }
 
 .takeout .order-sections section {
