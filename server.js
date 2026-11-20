@@ -114,6 +114,11 @@ http
     }
     */
 
+    if (req.method === "POST" && urlPath === "/api/login") {
+      if (!menuKeyOk(req)) return sendJson(res, 401, { error: "Wrong password." });
+      return sendJson(res, 200, { ok: true });
+    }
+
     if (req.method === "GET" && urlPath === "/api/menu") {
       try {
         const menu = await menuStore.loadMenu();

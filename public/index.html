@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=47">
+  <link rel="stylesheet" href="/styles.css?v=52">
 </head>
 <body>
 
@@ -75,6 +75,8 @@
     </button>
     <nav id="site-nav" aria-label="Primary">
       <a href="/takeout">Takeout</a>
+      <a href="#in-house">In House</a>
+      <a href="#delivery">Delivery</a>
       <a href="#specials">Specials</a>
       <a href="#menu">Food Menu</a>
       <a href="#gift-cards">Gift Cards</a>
@@ -92,6 +94,27 @@
       <div class="actions">
         <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=2294+State+Rd+Plymouth+MA+02360" target="_blank" rel="noopener">Get Directions</a>
         <a class="btn ghost" href="/takeout">Order Takeout</a>
+      </div>
+    </section>
+
+    <section class="delivery" id="in-house">
+      <div class="wrap">
+        <h2>In House</h2>
+        <div class="delivery-apps">
+          <a href="https://clip.getunion.com/?venue_uuid=250f31f3-f88a-4987-ac52-287b2252db63&table_name=TOGO" target="_blank" rel="noopener" aria-label="Order in house">
+            <img src="/img/union-logo.png" alt="" class="delivery-logo wordmark" width="500" height="250">
+          </a>
+        </div>
+        <h2 id="delivery">Delivery</h2>
+        <div class="delivery-apps">
+          <a href="https://www.ubereats.com/store/michaels-village-pub/ufyvLm2BVVSJrXGHsh3DeQ?diningMode=PICKUP&surfaceName=" target="_blank" rel="noopener" aria-label="Order on Uber Eats">
+            <img src="/img/ubereats-logo.png" alt="" class="delivery-logo" width="447" height="447">
+          </a>
+          <a href="https://order.online/store/-49867203?hideModal=true" target="_blank" rel="noopener" aria-label="Order on DoorDash">
+            <img src="/img/doordash-logo.jpg" alt="" class="delivery-logo" width="735" height="626">
+          </a>
+        </div>
+        <p class="fine">$20 minimum. Last order 30 minutes before close.</p>
       </div>
     </section>
 
@@ -179,7 +202,6 @@
         <h2>Gift Cards</h2>
         <div class="gift-split">
           <div>
-            <p>Digital cards, $10–$500, sent by email. Physical cards, $10–$500, sent by mail.</p>
             <a class="btn" href="https://michaelsvillagepub.webgiftcardsales.com/" target="_blank" rel="noopener">Purchase Gift Cards</a>
           </div>
         </div>

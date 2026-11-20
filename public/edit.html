@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Edit menu | Michael's Village Pub</title>
   <link rel="icon" href="/favicon.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=43">
+  <link rel="stylesheet" href="/styles.css?v=51">
 </head>
 <body>
   <header class="top">
@@ -22,15 +22,26 @@
     <section class="band">
       <div class="wrap">
         <h2>Menu</h2>
-        <p class="fine">Change the words here and save. Add a photo only for dishes you want in the gallery — skip tater tots and frickles. JPG, PNG, or WebP, 5 MB max. On Railway, set <code>MONGODB_URI</code> so the menu and photos stay after a redeploy, and <code>MENU_PASSWORD</code> so the public can’t change prices.</p>
-        <label class="edit-key">Password
-          <input id="key" type="password" autocomplete="current-password">
-        </label>
+        <form id="login-form">
+          <p class="edit-note">Enter the menu password to see and change the menu.</p>
+          <label class="edit-key">Password
+            <input id="key" type="password" autocomplete="current-password" required>
+          </label>
+          <button class="btn" type="submit">Log in</button>
+        </form>
         <p id="status" class="fine" role="status"></p>
-        <div id="editor"></div>
-        <div class="edit-actions">
-          <button class="btn" id="add-section" type="button">Add section</button>
-          <button class="btn" id="save" type="button">Save menu</button>
+        <div id="workspace" hidden>
+          <ol class="edit-steps">
+            <li>Change a dish, or click Add item.</li>
+            <li>Click Save menu. Wait until it says “Saved to MongoDB.”</li>
+            <li>Refresh the home page and check the food menu.</li>
+          </ol>
+          <p class="edit-note">A photo is optional. Use a JPG, PNG, or WebP under 5 MB, and only for a dish that should appear in the gallery. Click Save menu after the upload. This page does not change the takeout menu, specials, or hours.</p>
+          <div id="editor"></div>
+          <div class="edit-actions">
+            <button class="btn" id="add-section" type="button">Add section</button>
+            <button class="btn" id="save" type="button">Save menu</button>
+          </div>
         </div>
       </div>
     </section>
@@ -40,6 +51,8 @@
     const editor = document.getElementById("editor");
     const status = document.getElementById("status");
     const keyInput = document.getElementById("key");
+    const loginForm = document.getElementById("login-form");
+    const workspace = document.getElementById("workspace");
     let menu = { footer: "", categories: [] };
 
     keyInput.value = sessionStorage.getItem("mvp-menu-key") || "";
@@ -217,6 +230,9 @@
         body: JSON.stringify(menu),
       });
       if (response.status === 401) {
+        sessionStorage.removeItem("mvp-menu-key");
+        workspace.hidden = true;
+        loginForm.hidden = false;
         status.textContent = "Wrong password.";
         return;
       }
@@ -232,15 +248,46 @@
       render();
     });
 
-    fetch("/api/menu")
-      .then((response) => response.json())
-      .then((data) => {
-        menu = data;
+    async function loadMenu() {
+      try {
+        const response = await fetch("/api/menu", { cache: "no-store" });
+        if (!response.ok) throw new Error("menu");
+        menu = await response.json();
         render();
-      })
-      .catch(() => {
+      } catch (err) {
         status.textContent = "The menu didn’t load.";
-      });
+      }
+    }
+
+    async function login(event) {
+      if (event) event.preventDefault();
+      status.textContent = "Checking…";
+      try {
+        const response = await fetch("/api/login", {
+          method: "POST",
+          headers: { "x-menu-key": keyInput.value },
+        });
+        if (response.status === 401) {
+          sessionStorage.removeItem("mvp-menu-key");
+          status.textContent = "Wrong password.";
+          return;
+        }
+        if (!response.ok) {
+          status.textContent = "Could not log in.";
+          return;
+        }
+        sessionStorage.setItem("mvp-menu-key", keyInput.value);
+        status.textContent = "";
+        loginForm.hidden = true;
+        workspace.hidden = false;
+        await loadMenu();
+      } catch (err) {
+        status.textContent = "Could not log in.";
+      }
+    }
+
+    loginForm.addEventListener("submit", login);
+    if (keyInput.value) login();
   </script>
   <script src="/metal.js"></script>
 </body>

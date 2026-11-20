@@ -639,6 +639,23 @@ dialog.special .special-close {
 
 .menu-foot { margin-top: 2rem; max-width: 62ch; }
 
+.edit-steps {
+  max-width: 40rem;
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+  list-style: decimal;
+}
+
+.edit-steps li { margin: 0.2rem 0; }
+
+.edit-note {
+  max-width: 40rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+#login-form .btn { margin-top: 0.35rem; }
+
 .edit-key,
 .edit-field {
   display: flex;
@@ -929,7 +946,7 @@ dialog.special .special-close {
   margin: 0 auto;
 }
 
-.gift .btn { margin-top: 1.15rem; }
+.gift .btn { margin-top: 0; }
 
 .gift .tip {
   margin-top: 0.75rem;
@@ -977,7 +994,7 @@ address { font-style: normal; font-size: 1.15rem; margin-top: 0.25rem; }
 .facts {
   display: grid;
   gap: 1.25rem 2rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0 0 1.75rem;
 }
 
@@ -994,17 +1011,63 @@ address { font-style: normal; font-size: 1.15rem; margin-top: 0.25rem; }
 
 .fact a { color: inherit; }
 
+.delivery {
+  padding: 3.25rem 0 3.5rem;
+  text-align: center;
+  background: var(--brown-dark);
+  border-top: 6px solid var(--gold);
+}
+
+#in-house { scroll-margin-top: 5.5rem; }
+
+.delivery h2 { margin-bottom: 1.35rem; }
+
+.delivery h2 + h2,
+.delivery .delivery-apps + h2 {
+  margin-top: 2.4rem;
+  scroll-margin-top: 5.5rem;
+}
+
 .delivery-apps {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin: 0.25rem 0 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.delivery-apps a {
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  outline-offset: 5px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.38);
+  transition: transform 0.15s ease;
+}
+
+.delivery-apps a:hover,
+.delivery-apps a:focus-visible {
+  transform: translateY(-4px);
+  outline: 3px solid var(--gold);
 }
 
 .delivery-logo {
-  height: 32px;
   width: auto;
-  max-width: 160px;
+  height: 168px;
+  max-width: none;
+}
+
+.delivery-logo.wordmark {
+  height: 168px;
+  width: 280px;
+  object-fit: contain;
+  background: #fff;
+}
+
+.delivery .fine {
+  max-width: 28rem;
+  margin: 1.35rem auto 0;
+  color: var(--cream);
 }
 
 .social-row { margin-top: 2rem; }
@@ -1253,11 +1316,14 @@ footer .credit a:focus-visible { color: var(--amber); }
   .fields { grid-template-columns: 1fr; }
   .menu-cols { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr; }
+  .delivery-logo { height: 132px; }
+  .delivery-logo.wordmark { height: 132px; width: min(240px, 86vw); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
+  .delivery-apps a { transition: none; }
   .view[open] .view-pic { animation: none; }
   .nav-toggle-bars,
   .nav-toggle-bars::before,
