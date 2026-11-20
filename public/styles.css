@@ -1030,20 +1030,57 @@ address { font-style: normal; font-size: 1.15rem; margin-top: 0.25rem; }
 
 .takeout .facts { grid-template-columns: repeat(2, minmax(0, 18rem)); }
 
-.takeout .order-picks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem 2.5rem;
-  align-items: flex-end;
-  margin: 0 0 1.5rem;
+.takeout .order-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem 2rem;
+  align-items: start;
+  margin-top: 2.5rem;
 }
 
-.takeout .order-picks .label { margin-bottom: 0.6rem; }
+.takeout .order-sections h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
+  letter-spacing: 0.08em;
+  word-spacing: 0.08em;
+  text-align: center;
+}
+
+.takeout .order-sections section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.takeout .order-sections .fine {
+  margin: 0.9rem auto 0;
+  max-width: 28ch;
+  text-align: center;
+}
+
+.takeout .order-sections .delivery-apps { justify-content: center; }
 
 .takeout .delivery-logo,
 .takeout .delivery-logo.wordmark { height: 132px; }
 
 .takeout .delivery-logo.wordmark { width: 220px; }
+
+.takeout .menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 220px;
+  height: 132px;
+  padding: 0;
+  border-radius: 18px;
+  font-family: var(--display);
+  font-size: 2.15rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.38);
+}
 
 .delivery-apps {
   display: flex;
@@ -1333,6 +1370,7 @@ footer .credit a:focus-visible { color: var(--amber); }
   .fields { grid-template-columns: 1fr; }
   .menu-cols { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr; }
+  .takeout .order-sections { grid-template-columns: 1fr; }
   .delivery-logo { height: 132px; }
   .delivery-logo.wordmark { height: 132px; width: min(240px, 86vw); }
 }

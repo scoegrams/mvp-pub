@@ -16,15 +16,13 @@
       .trim();
   }
 
-  const takeout = document.body.classList.contains("takeout");
-
   function row(item) {
     const entry = document.createElement("li");
     entry.className = "menu-row";
     const name = document.createElement("h4");
     name.appendChild(text(item.name));
     entry.append(name);
-    if (item.image && !takeout) {
+    if (item.image) {
       entry.classList.add("has-photo");
       const thumb = document.createElement("a");
       thumb.className = "thumb";
@@ -102,7 +100,7 @@
         }
         const list = document.createElement("ul");
         list.className = "menu-list";
-        if (category.id === "favorites" && !takeout) {
+        if (category.id === "favorites") {
           list.classList.add("fav-grid");
           (category.items || []).forEach((item) => list.appendChild(card(item)));
         } else {
